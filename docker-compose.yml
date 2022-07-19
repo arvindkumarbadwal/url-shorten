@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  app:
+    image: shorten-url
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: dev
+    ports:
+      - 5000:3000
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+  db:
+    image: postgres:14.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: '${POSTGRES_USER:-postgres}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD:-123456}'
+      POSTGRES_DB: '${POSTGRES_DB:-app_db}'
