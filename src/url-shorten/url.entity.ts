@@ -7,6 +7,7 @@ import {
   Column,
   Index,
 } from 'typeorm';
+import configuration from '../config/configuration';
 
 @Entity()
 export class UrlEntity {
@@ -34,6 +35,7 @@ export class UrlEntity {
 
   @Expose()
   public get shortUrl() {
-    return `r/${this.urlCode}`;
+    const config = configuration();
+    return `${config.tiny_base_url}r/${this.urlCode}`;
   }
 }
