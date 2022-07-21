@@ -21,16 +21,20 @@ $ docker-compose up --build
 ## Request
 
 ### Generate Short URL
-  POST /url-shorten
-  Host: localhost:3000
-  Accept: application/json
-  Content-Type: application/json
-  Request Body
-  {
-    "longUrl": "any url which you want to get short url"
-  }
+<pre>
+POST /url-shorten
+Host: localhost:3000
+Accept: application/json
+Content-Type: application/json
+Request Body
+{
+	"longUrl": "[AnyUrlWhichYouWantToGetShortUrl]"
+}
+</pre>
 
 ### Get Detail By Short Code
+<pre>
 POST /url-shorten/{shortCode}
 Host: localhost:3000
 Accept: application/json
+</pre>
